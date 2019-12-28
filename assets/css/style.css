@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main-area {
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 80%;
+  float: right;
+  padding: 30px;
+  text-align: center;
+}
+
+.sidebar {
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 20%;
+  height: 100vh;
+  float: left;
+  border-right: ridge;
+  text-align: center;
+}
+
+.page-title {
+  color: #00f;
+  font-size: 3rem;
+  font-style: italic;
+  text-shadow: 1px 1px 0px black, 1px -1px 0px black, -1px 1px 0px black, -1px -1px 0px black, 5px 5px 3px #ccc;
+}
+/*# sourceMappingURL=style.css.map */
