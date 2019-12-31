@@ -1,0 +1,9 @@
+html {
+  scroll-behavior: smooth;
+  text-align: center;
+}
+
+.section {
+  min-height: 100vh;
+}
+/*# sourceMappingURL=style.css.map */
