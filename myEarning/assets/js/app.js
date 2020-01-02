@@ -1,7 +1,7 @@
 var app = new Vue({
   el: "#app",
   data: {
-    expect: 1000,
+    expect: 500,
     weeklyOff: 2,
     dailyWH: 8,
     pto: 10,
@@ -18,6 +18,9 @@ var app = new Vue({
     yearWD: function() {
       return 365 - this.nationalHolidays - this.pto - this.annualOff;
     },
+    yearWH: function() {
+      return this.yearWD * this.dailyWH;
+    },
     actualRate: function() {
       return (100 - this.errandsRate) / 100;
     },
@@ -25,7 +28,7 @@ var app = new Vue({
       return Math.round(this.yearWD * this.actualRate * 100) / 100;
     },
     actualWH: function() {
-      return Math.round(this.actualWD * this.dailyWH * 100) / 100;
+      return Math.round(this.yearWH * this.actualRate * 100) / 100;
     },
     resultDay: function() {
       return Math.round((this.target * 10000) / this.actualWD);

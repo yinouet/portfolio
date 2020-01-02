@@ -2,19 +2,43 @@
 <html lang="ja">
 
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154146095-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-154146095-2');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./assets/css/style.css">
   <title>Document</title>
+
+  <meta property="og:title" content="フリーランス向け 自分の単価計算機" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yino.work/myRate" />
+  <!-- <meta property="og:image" content="https://justmarried.site/assets/img/justMarriedTape.jpg" /> -->
+  <meta property="og:site_name" content="フリーランス向け 自分の単価計算機" />
+  <meta property="og:description" content="希望の年商を入力すると1日あたりの単価と1時間あたりの単価を表示します。目標へのモチベーションにするもよし、見込みの甘さに絶望するもよし。" />
+  <meta name="twitter:card" content="summary" />
+  <!-- <meta name="twitter:site" content="@" /> -->
+  <meta name="twitter:domain" content="yino.work" />
+  <meta name="twitter:title" content="フリーランス向け 自分の単価計算機" />
+  <meta name="twitter:description" content="希望の年商を入力すると1日あたりの単価と1時間あたりの単価を表示します。目標へのモチベーションにするもよし、見込みの甘さに絶望するもよし。" />
+  <!-- <meta name="twitter:image" content="https://justmarried.site/assets/img/justMarriedTape.jpg" /> -->
+  <!-- <meta itemprop="image" content="https://justmarried.site/assets/img/justMarriedTape.jpg" /> -->
 </head>
 
 <body>
   <!-- 開発バージョン、便利なコンソールの警告が含まれています -->
-  <h1>How much should I charge?</h1>
+  <h1>フリーランス向け 自分の単価計算機</h1>
   <div id="app">
     <div id="abstract" class="section">
-      <span class="expect-caption">目標の年収</span>
+      <span class="expect-caption">目標の年収(税抜)</span>
       <label for="expect">
         <input class="expect-input" type="text" v-model.number="expect" name="expect">万円</label>
       <!-- <button id="clickbtn_calc" class="btn-calc" v-on:click="calculateMyValue()" type="button">計算する</button> -->
@@ -28,6 +52,8 @@
     </div>
     <div id="detail" class="section">
       <h2>くわしい計算方法</h2>
+      <small>Inspired by <a href="https://www.whatismydayrate.com/" target="_blank" rel="noopener noreferrer">What is my
+          day rate? - The Day Rate Calculator</a></small>
       <h3>本当の目標額</h3>
       <p>この計算は単純に希望の年商{{expect}}万円/365日ではありません。</p>
       <p>まず、給与所得者の場合に雇用主が負担している健康保険や年金などのコストとして、年収の20%を概算として加算します。</p>
@@ -37,7 +63,8 @@
       <p>1年365日のうち、日本では{{nationalHolidays}}日の祝日が設定されています。</p>
       <p>次に週休<input type="number" min="1" max="6" step="1" v-model="weeklyOff">日の場合、年間では{{annualOff}}日となります。(52週/1年)</p>
       <p>さらに、給与所得者なら認められる有給休暇を、平均取得20日、消化率50%の10日とします。</p>
-      <p>これらの休日を休業日として365日から引くと、あなたが1年で働ける日数は{{yearWD}}日となります。</p>
+      <p>これらの休日を休業日として365日から引くと、あなたが1年で働ける日数は{{yearWD}}日、</p>
+      <p>1日に<input type="number" min="1" max="12" step="1" v-model="dailyWH">時間働くと、1年の総労働時間は{{yearWH}}時間となります。</p>
       <h3>報酬の発生しない仕事</h3>
       <p>企業に勤める給与所得者の場合、経理や事務作業などを自分でやる必要はありません。</p>
       <p>しかしフリーランスのあなたはこのような”報酬の発生しない仕事”も自分でやる必要があります。</p>
